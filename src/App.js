@@ -143,7 +143,7 @@ function App() {
             <h1 className="title-font xl:text-6xl lg:5xl text-5xl mb-10 font-bold text-gray-900 sm:leading-snug xl:leading-snug leading-snug dark:text-white">
               I enjoy building professional websites and apps
             </h1>
-            <button className=' bg-slate-800 text-white px-8 py-4 sm:px-12 sm:py-5 rounded-full font-bold hover:text-black transition-all ease-in-out delay-150 hover:bg-transparent border-2 border-gray-200 dark:hover:text-gray-500 dark:border-gray-700 dark:border-2 md:mb-0 mb-10'>Get in Touch</button>
+            <a href='#contact' className=' bg-slate-800 text-white px-8 py-4 sm:px-12 sm:py-5 rounded-full font-bold hover:text-black transition-all ease-in-out delay-150 hover:bg-transparent border-2 border-gray-200 dark:hover:text-gray-500 dark:border-gray-700 dark:border-2 md:mb-0 mb-10'>Get in Touch</a>
           </div>
 
           <div className="flex flex-wrap lg:max-w-xl lg:w-[50%] w-full h-[100vh] md:-mt-28">
@@ -257,7 +257,7 @@ function App() {
       </section>
 
       <section id='contact'>
-        <div className='px-6 sm:px-16 flex sm:flex-row flex-col pb-20 dark:bg-slate-800 pt-10'>
+        <div className='px-6 sm:px-16 flex sm:flex-row flex-col sm:pb-20 pb-10 dark:bg-slate-800 sm:pt-10 pt-4'>
           <div className='sm:w-1/2 pr-24'>
             <h1 className='title-font sm:text-4xl text-2xl mb-6 font-bold text-gray-900 leading-tight dark:text-white'>Get in Touch</h1>
             <p className="leading-relaxed sm:text-xl text-base dark:text-gray-500 mb-8 sm:mb-0">Get in touch for more information or ask questions through following Email & links.</p>
