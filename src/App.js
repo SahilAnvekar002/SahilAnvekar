@@ -263,21 +263,21 @@ function App() {
             <p className="leading-relaxed sm:text-xl text-base dark:text-gray-500 mb-8 sm:mb-0">Get in touch for more information or ask questions through following Email & links.</p>
           </div>
           <div className='flex flex-wrap sm:w-1/2'>
-            <div className='flex flex-col py-10 px-10 rounded-2xl bg-gray-100 w-[100%] lg:w-[45%] lg:mr-5 mb-5 dark:bg-slate-800 dark:border dark:border-gray-700'>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5 dark:bg-slate-800 dark:border dark:border-gray-700'>
               <IconMail size={50} className='mb-3 dark:text-white'/>
-              <a target='_blank' rel='noreferrer' href="mailto:sanvekar108@gmail.com"><span className='text-lg font-semibold text-gray-700 dark:text-gray-500'>Email Address</span></a>
+              <a target='_blank' rel='noreferrer' href="mailto:sanvekar108@gmail.com"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Email Address</span></a>
             </div>
-            <div className='flex flex-col py-10 px-10 rounded-2xl bg-gray-100 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
               <IconBrandWhatsapp size={50} className='mb-3 dark:text-white'/>
-              <a target='_blank' rel='noreferrer' href="https://wa.me/8459723961"><span className='text-lg font-semibold text-gray-700 dark:text-gray-500'>Whats App</span></a>
+              <a target='_blank' rel='noreferrer' href="https://wa.me/8459723961"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Whats App</span></a>
             </div>
-            <div className='flex flex-col py-10 px-10 rounded-2xl bg-gray-100 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
               <IconBrandInstagram size={50} className='mb-3 dark:text-white'/>
-              <a target='_blank' rel='noreferrer' href="https://www.instagram.com/_itz_sahil_08/"><span className='text-lg font-semibold text-gray-700 dark:text-gray-500'>Instagram</span></a>
+              <a target='_blank' rel='noreferrer' href="https://www.instagram.com/_itz_sahil_08/"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Instagram</span></a>
             </div>
-            <div className='flex flex-col py-10 px-10 rounded-2xl bg-gray-100 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
               <IconBrandTelegram size={50} className='mb-3 dark:text-white'/>
-              <a target='_blank' rel='noreferrer' href="https://web.telegram.org/k/#@Sahil_anvekar002"><span className='text-lg font-semibold text-gray-700 dark:text-gray-500'>Telegram</span></a>
+              <a target='_blank' rel='noreferrer' href="https://web.telegram.org/k/#@Sahil_anvekar002"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Telegram</span></a>
             </div>
           </div>
         </div>
