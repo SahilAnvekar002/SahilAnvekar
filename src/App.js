@@ -202,7 +202,7 @@ function App() {
       </section>
 
       <section id='skills'>
-        <div className='px-6 sm:px-16 flex flex-col pb-20 dark:bg-slate-800'>
+        <div className='px-6 sm:px-16 flex flex-col sm:pb-20 pb-12 dark:bg-slate-800'>
           <h1 className='title-font sm:text-4xl text-2xl mb-6 font-bold text-gray-900 leading-tight dark:text-white'>My Skills</h1>
           <p className="leading-relaxed sm:text-xl text-base dark:text-gray-500 mb-1">I have learned number of programming languages and frameworks throught my graduation.</p>
           <p className="lg:mb-10 mb-5 leading-relaxed sm:text-xl text-base dark:text-gray-500">Following is the list of my skills.</p>
@@ -225,7 +225,7 @@ function App() {
       </section>
 
       <section id='projects'>
-        <div className='px-6 sm:px-16 flex flex-col pb-20 dark:bg-slate-800'>
+        <div className='px-6 sm:px-16 flex flex-col sm:pb-20 pb-12 dark:bg-slate-800'>
           <h1 className='title-font sm:text-4xl text-2xl mb-6 font-bold text-gray-900 leading-tight dark:text-white'>My Projects</h1>
           <p className="leading-relaxed sm:text-xl text-base dark:text-gray-500 mb-1">I have developed number of personal projects throught my graduation.</p>
           <p className="lg:mb-10 mb-5 leading-relaxed sm:text-xl text-base dark:text-gray-500">Following is the list of my personal projects.</p>
