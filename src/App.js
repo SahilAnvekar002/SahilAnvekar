@@ -52,10 +52,10 @@ function App() {
       link: 'https://github.com/SahilAnvekar002/BlogWebsite'
     },
     {
-      title: 'Social Media App',
-      des: "It is a clone of social media application which allows users to upload images, create and edit profile, search users, follow and unfollow users, get notifications, like , comment and unlike posts by creating account with our application. It contains features such as login and signup, image uploading and other similar features.",
+      title: 'Silver Gardens',
+      des: "Silver Gardens is a hospital website which allows patients to book appointment online and administrator to manage the information of the hospital such as doctor information, blog details and appointments. It provides convenience to patients to get additional information about the hospital and sent feedback in case of query.",
       images: ['/p3/1.png', '/p3/2.png', '/p3/3.png', '/p3/4.png', '/p3/5.png', '/p3/6.png'],
-      link: 'https://github.com/SahilAnvekar002/SocialMediaApp'
+      link: 'https://silver-gardens.vercel.app/'
     }
   ]
 
@@ -238,11 +238,6 @@ function App() {
                   </div>
                   <h2 className="text-xl font-medium title-font text-gray-900 mt-5 dark:text-white">{project.title}</h2>
                   <p className="text-base leading-relaxed mt-2 dark:text-gray-500">{project.des}</p>
-                  <button className="text-indigo-500 dark:text-white inline-flex items-center mt-3 cursor-pointer mr-5" onClick={() => toggleModal(index)}>Learn More
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
                   <br />
                   <a className=" text-indigo-500 dark:text-white inline-flex items-center mt-3 cursor-pointer mr-5" target='_blank' href={project.link} rel="noreferrer">Project Link
                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
