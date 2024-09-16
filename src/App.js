@@ -1,9 +1,11 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { IconBrandCss3, IconBrandHtml5, IconBrandInstagram, IconBrandJavascript, IconBrandNextjs, IconBrandReact, IconBrandTailwind, IconBrandTelegram, IconBrandWhatsapp, IconMail, IconMoon, IconSun, IconX } from '@tabler/icons-react';
 import Hamburger from 'hamburger-react';
 
 function App() {
+
+  const refs = useRef([]);
 
   const skills = [
     {
@@ -95,6 +97,39 @@ function App() {
     }
   }
 
+  const isInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
+  };
+
+  useEffect(() => {
+
+    refs.current.forEach((ref) => {
+      if (ref && isInViewport(ref)) {
+        ref.classList.add('opacity-100');
+        ref.classList.remove('opacity-0');
+        ref.classList.remove('translate-y-10');
+      }
+    });
+
+    const onScroll = () => {
+      refs.current.forEach((ref) => {
+        if (ref && isInViewport(ref)) {
+          ref.classList.add('opacity-100');
+          ref.classList.remove('opacity-0');
+          ref.classList.remove('translate-y-10');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', onScroll);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <>
       <header className="bg-white fixed top-0 w-full flex justify-between items-center h-[70px] shadow-md dark:bg-slate-800 dark:border-b dark:border-gray-700 z-20">
@@ -104,7 +139,7 @@ function App() {
           </a>
         </div>
         <ul className="md:flex hidden justify-center items-center h-[100%]">
-          <li className="px-4 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all ease-in-out delay-100 h-[100%] flex items-center dark:text-white"><a className='h-[100%] flex justify-center items-center' href='#home'><span>Home</span></a></li>
+          <li className="px-4 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all ease-in-out delay-100 h-[100%] flex items-center dark:text-white" ><a className='h-[100%] flex justify-center items-center' href='#home'><span>Home</span></a></li>
           <li className="px-4 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all ease-in-out delay-100  h-[100%] flex items-center dark:text-white"><a className='h-[100%] flex justify-center items-center' href='#about'><span>About</span></a></li>
           <li className="px-4 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all ease-in-out delay-100 h-[100%] flex items-center dark:text-white"><a className='h-[100%] flex justify-center items-center' href='#skills'><span>Skills</span></a></li>
           <li className="px-4 hover:bg-gray-200 dark:hover:bg-gray-900 transition-all ease-in-out delay-100 h-[100%] flex items-center dark:text-white"><a className='h-[100%] flex justify-center items-center' href='#projects'><span>Projects</span></a></li>
@@ -139,14 +174,14 @@ function App() {
       <section className="text-gray-600 body-font dark:bg-slate-800 md:pt-24 pt-16" id='home'>
         <div className="xl:mx-auto flex px-6 sm:px-16 lg:pb-24 pb-10 lg:pt-6 pt-24 lg:flex-row flex-col lg:items-center lg:w-[100vw]">
           <div className="lg:flex-grow md:w-[70%] lg:w-[50%] md:pr-16 flex flex-col md:items-start md:text-left md:mb-0 items-center text-center">
-            <p className="mb-8 leading-relaxed text-2xl dark:text-gray-500 font-semibold">Hey, I am Sahil Anvekar</p>
-            <h1 className="title-font xl:text-6xl lg:5xl text-5xl mb-10 font-bold text-gray-900 sm:leading-snug xl:leading-snug leading-snug dark:text-white">
+            <p className="mb-8 leading-relaxed text-2xl dark:text-gray-500 font-semibold opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10" ref={(el)=>{refs.current[0] = el}}>Hey, I am Sahil Anvekar</p>
+            <h1 className="title-font xl:text-6xl lg:5xl text-5xl mb-10 font-bold text-gray-900 sm:leading-snug xl:leading-snug leading-snug dark:text-white transition-[opacity,transform] delay-500 duration-500 ease-in-out opacity-0 transform translate-y-10" ref={(el)=>{refs.current[1] = el}}>
               I enjoy building professional websites and apps
             </h1>
-            <a href='#contact' className=' bg-slate-800 text-white px-8 py-4 sm:px-12 sm:py-5 rounded-full font-bold hover:text-black transition-all ease-in-out delay-150 hover:bg-transparent border-2 border-gray-200 dark:hover:text-gray-500 dark:border-gray-700 dark:border-2 md:mb-0 mb-10'>Get in Touch</a>
+            <a href='#contact' className=' bg-slate-800 text-white px-8 py-4 sm:px-12 sm:py-5 rounded-full font-bold hover:text-black transition-[opacity,transform] ease-in-out hover:delay-150 hover:bg-transparent border-2 border-gray-200 dark:hover:text-gray-500 dark:border-gray-700 dark:border-2 md:mb-0 mb-10  delay-500 duration-500 opacity-0 transform translate-y-10' ref={(el)=>{refs.current[2] = el}}>Get in Touch</a>
           </div>
 
-          <div className="flex flex-wrap lg:max-w-xl lg:w-[50%] w-full h-[100vh] md:-mt-28">
+          <div className="flex flex-wrap lg:max-w-xl lg:w-[50%] w-full h-[100vh] md:-mt-28 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10" ref={(el)=>{refs.current[3] = el}}>
             <div className={`flex flex-wrap w-1/3 h-full images1`}>
               <div className="md:p-2 p-1 h-[40%] invisible">
                 <img alt="gallery" className="w-full object-cover h-full object-center block" src="https://dummyimage.com/500x300" />
@@ -185,31 +220,31 @@ function App() {
       </section>
 
       <section id='about' className='dark:bg-slate-800'>
-        <div className='flex px-6 sm:px-16 md:flex-row flex-col pt-10 items-center'>
-          <div className='lg:w-[60%] md:w-[100%]  w-full md:mr-10'>
+        <div className='flex px-6 sm:px-16 md:flex-row flex-col pt-6 items-center sm:pb-24 pb-10'>
+          <div className='lg:w-[60%] md:w-[100%]  w-full md:mr-10 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10' ref={(el)=>{refs.current[4] = el}}>
             <h1 className='title-font sm:text-4xl text-2xl mb-8 font-bold text-gray-900 leading-tight dark:text-white'>About Me</h1>
             <p className="mb-5 leading-relaxed sm:text-xl text-base dark:text-gray-500 ">I am pursuing the role as a web developer with a passion for creating immersive user experiences through knowledge of programming languages and frameworks.</p>
             <p className="mb-5 leading-relaxed sm:text-xl text-base dark:text-gray-500">I have the basic understanding and knowledge of HTML, CSS, Javascript, Tailwind CSS, ReactJs, NextJs and other related technologies develop, assist as well as troubleshoot the websites and web applications.</p>
             <p className="mb-5 leading-relaxed sm:text-xl text-base dark:text-gray-500">I have developed some websites like blog website, social media website and e-commerce website during my education as personal projects. You will find the projects and their source code in the projects section of my portfolio.</p>
           </div>
-          <div className="lg:flex hidden ml-16">
+          <div className="lg:flex hidden ml-16 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10" ref={(el)=>{refs.current[5] = el}}>
             <img src="https://sahilanvekar002.github.io/Portfolio/media/sahil.jpg" className='max-h-[500px] rounded-2xl' alt="Me" />
           </div>
         </div>
-        <div className='flex justify-center sm:py-24 py-10'>
-          <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="About" className='max-h-[500px] w-full' />
+        <div className='flex justify-center h-[500px] w-full bg-fixed bg-cover bg-parallax'>
+
         </div>
       </section>
 
       <section id='skills'>
-        <div className='px-6 sm:px-16 flex flex-col sm:pb-20 pb-12 dark:bg-slate-800'>
+        <div className='px-6 sm:px-16 flex flex-col sm:py-20 py-12 dark:bg-slate-800'>
           <h1 className='title-font sm:text-4xl text-2xl mb-6 font-bold text-gray-900 leading-tight dark:text-white'>My Skills</h1>
           <p className="leading-relaxed sm:text-xl text-base dark:text-gray-500 mb-1">I have learned number of programming languages and frameworks throught my graduation.</p>
           <p className="lg:mb-10 mb-5 leading-relaxed sm:text-xl text-base dark:text-gray-500">Following is the list of my skills.</p>
           <div className="flex flex-wrap">
-            {skills.map((skill) => {
+            {skills.map((skill, i) => {
               return (
-                <div className='flex xl:w-[30%] lg:w-[45%] md:w-[100%] dark:shadow-none dark:border dark:border-gray-700 shadow-md rounded-xl sm:px-10 px-2 py-10 sm:mr-6 mb-6' key={skill.title}>
+                <div className='flex xl:w-[30%] lg:w-[45%] md:w-[100%] dark:shadow-none dark:border dark:border-gray-700 shadow-md rounded-xl sm:px-10 px-2 py-10 sm:mr-6 mb-6 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10' key={skill.title} ref={(el)=>{refs.current[i+6] = el}}>
                   <div className="pr-5">
                     {skill.icon}
                   </div>
@@ -232,14 +267,14 @@ function App() {
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             {projects.map((project, index) => {
               return (
-                <div className="p-4 md:w-1/3 sm:mb-0 mb-6" key={project.title}>
+                <div className="p-4 md:w-1/3 sm:mb-0 mb-6 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10" key={project.title} ref={(el)=>{refs.current[index+12] = el}}>
                   <div className="rounded-lg h-64 overflow-hidden">
                     <img alt="content" className="object-cover object-center h-full w-full" src={process.env.PUBLIC_URL + project.images[0]} />
                   </div>
                   <h2 className="text-xl font-medium title-font text-gray-900 mt-5 dark:text-white">{project.title}</h2>
                   <p className="text-base leading-relaxed mt-2 dark:text-gray-500">{project.des}</p>
                   <br />
-                  <a className=" text-indigo-500 dark:text-white inline-flex items-center mt-3 cursor-pointer mr-5" target='_blank' href={project.link} rel="noreferrer">Project Link
+                  <a className=" text-indigo-500 dark:text-white inline-flex items-center cursor-pointer mr-5" target='_blank' href={project.link} rel="noreferrer">Project Link
                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                       <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
@@ -258,20 +293,20 @@ function App() {
             <p className="leading-relaxed sm:text-xl text-base dark:text-gray-500 mb-8 sm:mb-0">Get in touch for more information or ask questions through following Email & links.</p>
           </div>
           <div className='flex flex-wrap sm:w-1/2'>
-            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5 dark:bg-slate-800 dark:border dark:border-gray-700'>
-              <IconMail size={50} className='mb-3 dark:text-white'/>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5 dark:bg-slate-800 dark:border dark:border-gray-700 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10' ref={(el)=>{refs.current[15] = el}}>
+              <IconMail size={50} className='mb-3 dark:text-white' />
               <a target='_blank' rel='noreferrer' href="mailto:sanvekar108@gmail.com"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Email Address</span></a>
             </div>
-            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
-              <IconBrandWhatsapp size={50} className='mb-3 dark:text-white'/>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10' ref={(el)=>{refs.current[16] = el}}>
+              <IconBrandWhatsapp size={50} className='mb-3 dark:text-white' />
               <a target='_blank' rel='noreferrer' href="https://wa.me/8459723961"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Whats App</span></a>
             </div>
-            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
-              <IconBrandInstagram size={50} className='mb-3 dark:text-white'/>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10' ref={(el)=>{refs.current[17] = el}}>
+              <IconBrandInstagram size={50} className='mb-3 dark:text-white' />
               <a target='_blank' rel='noreferrer' href="https://www.instagram.com/_itz_sahil_08/"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Instagram</span></a>
             </div>
-            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700'>
-              <IconBrandTelegram size={50} className='mb-3 dark:text-white'/>
+            <div className='flex flex-col py-10 px-10 rounded-2xl border border-gray-300 w-[100%] lg:w-[45%] lg:mr-5 mb-5  dark:bg-slate-800 dark:border dark:border-gray-700 opacity-0 transition-[opacity,transform] delay-500 duration-500 ease-in-out transform translate-y-10' ref={(el)=>{refs.current[18] = el}}>
+              <IconBrandTelegram size={50} className='mb-3 dark:text-white' />
               <a target='_blank' rel='noreferrer' href="https://web.telegram.org/k/#@Sahil_anvekar002"><span className='sm:text-lg text-base font-semibold text-gray-700 dark:text-gray-500'>Telegram</span></a>
             </div>
           </div>
@@ -279,7 +314,7 @@ function App() {
       </section>
 
       <footer className='h-[80px] flex justify-center items-center dark:bg-slate-800 border-t border-gray-200 dark:border-gray-700'>
-            <span className='dark:text-white text-center sm:text-left sm:px-0 px-6'>Copyright ©2024 All rights reserved | This website is made by Sahil Anvekar</span>
+        <span className='dark:text-white text-center sm:text-left sm:px-0 px-6'>Copyright ©2024 All rights reserved | This website is made by Sahil Anvekar</span>
       </footer>
 
 
