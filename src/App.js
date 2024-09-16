@@ -231,7 +231,7 @@ function App() {
             <img src="https://sahilanvekar002.github.io/Portfolio/media/sahil.jpg" className='max-h-[500px] rounded-2xl' alt="Me" />
           </div>
         </div>
-        <div className='flex justify-center h-[500px] w-full bg-fixed bg-cover bg-parallax'>
+        <div className='flex justify-center h-[250px] sm:h-[500px] w-full bg-fixed bg-parallax bg-no-repeat bg-center sm:bg-100% bg-150%'>
 
         </div>
       </section>
